@@ -1,0 +1,66 @@
+<div class="container">
+    <h1>Map Request</h1>
+    <form (ngSubmit)="onSubmit()" #mapRequest="ngForm">
+      <div class="form-group">
+        <label for="length">Length</label>
+        <input type="text" class="form-control" id="length" required [(ngModel)]="model.length" name="length" #name="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="width">Width</label>
+        <input type="text" class="form-control" id="width" required [(ngModel)]="model.width" name="width">
+      </div>
+      <hr/>
+      <div class="form-group">
+        <label for="cities">Cities</label>
+        <select class="form-control" id="cities" required [(ngModel)]="model.cities" name="cities">
+          <option [value]=true>Yes</option>
+          <option [value]=false>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="citiesProba">Probability</label>
+        <input type="text" class="form-control" id="citiesProba" required [(ngModel)]="model.citiesProba" name="citiesProba">
+      </div>
+      <div class="form-group">
+        <label for="citiesIterNb">Propagation</label>
+        <input type="text" class="form-control" id="citiesIterNb" required [(ngModel)]="model.citiesIterNb" name="citiesIterNb">
+      </div>
+      <hr/>
+      <div class="form-group">
+        <label for="forests">Forests</label>
+        <select class="form-control" id="forests" required [(ngModel)]="model.forests" name="forests">
+          <option [value]=true>Yes</option>
+          <option [value]=false>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="forestsProba">Probability</label>
+        <input type="text" class="form-control" id="forestsProba" required [(ngModel)]="model.forestsProba" name="forestsProba">
+      </div>
+      <div class="form-group">
+        <label for="forestsIterNb">Propagation</label>
+        <input type="text" class="form-control" id="forestsIterNb" required [(ngModel)]="model.forestsIterNb" name="forestsIterNb">
+      </div>
+      <hr/>
+      <div class="form-group">
+        <label for="water">Water</label>
+        <select class="form-control" id="water" required [(ngModel)]="model.water" name="water">
+          <option [value]=true>Yes</option>
+          <option [value]=false>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="waterProba">Probability</label>
+        <input type="text" class="form-control" id="waterProba" required [(ngModel)]="model.waterProba" name="waterProba">
+      </div>
+      <div class="form-group">
+        <label for="waterIterNb">Propagation</label>
+        <input type="text" class="form-control" id="waterIterNb" required [(ngModel)]="model.waterIterNb" name="waterIterNb">
+      </div>
+      <hr/>
+      <div>
+        <button type="button" class="btn btn-warning" (click)="newMapRequest(); mapRequest.reset()">Clear</button>
+        <button type="submit" class="btn btn-success" [disabled]="!mapRequest.form.valid">Submit</button>
+      </div>
+    </form>
+</div>
