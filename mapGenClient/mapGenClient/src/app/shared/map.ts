@@ -1,6 +1,7 @@
-export class MapParams {
+export class Map {
 
   constructor(
+    public map : any,
     public length: number,
     public width: number,
     public cities: boolean,

@@ -50,6 +50,8 @@ public class Map {
         this.initializeMap();
     }
 
+    public Map(){}
+
     private void initializeMap(){
 
         //Populating wth grass
@@ -212,20 +214,16 @@ public class Map {
                 water.equals(map1.water);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(map, length, width, cities, citiesProba, citiesIterNb, forests, forestsProba, forestsIterNb, water, waterProba, waterIterNb);
-    }
-
-    public HashMap<Coordinate, Case> getMap() {
-        return map;
-    }
-
     public int getLength() {
         return length;
     }
 
     public int getWidth() {
         return width;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(map, length, width, cities, citiesProba, citiesIterNb, forests, forestsProba, forestsIterNb, water, waterProba, waterIterNb);
     }
 }

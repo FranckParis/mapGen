@@ -2,18 +2,18 @@ import { MapService } from '../shared/map/map.service';
 import { OnInit, Component } from '@angular/core';
 
 @Component({
-  selector: 'view-map',
-  templateUrl: './view-map.component.html',
-  styleUrls: ['./view-map.component.css']
+  selector: 'random-map',
+  templateUrl: './random-map.component.html',
+  styleUrls: ['./random-map.component.css']
 })
 
-export class ViewMapComponent implements OnInit {
+export class RandomMapComponent implements OnInit {
   map: any;
 
   constructor(private mapService: MapService) { }
 
   ngOnInit() {
-    this.mapService.get().subscribe(data => {
+    this.mapService.getRandom().subscribe(data => {
       this.map = data;
     });
   }

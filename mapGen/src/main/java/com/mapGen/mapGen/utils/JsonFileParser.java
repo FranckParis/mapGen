@@ -8,18 +8,14 @@ import java.io.*;
 
 public class JsonFileParser {
 
-    private String fileName;
+    public JsonFileParser(){ }
 
-    public JsonFileParser(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public Map parseJsonfromFile(){
+    public Map parseJsonfromFile(String fileName){
 
         String line;
         StringBuilder jsonDataString = new StringBuilder();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(this.fileName));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
             while((line = bufferedReader.readLine()) != null) {
                 jsonDataString.append(line);
             }
@@ -29,7 +25,12 @@ public class JsonFileParser {
         }
 
         //Parsing JSON
-        JsonObject jobj = new Gson().fromJson(String.valueOf(jsonDataString), JsonObject.class);
+        return parseFromString(String.valueOf(jsonDataString));
+    }
+
+    public Map parseFromString(String s){
+        Gson g = new Gson();
+        JsonObject jobj = g.fromJson(s, JsonObject.class);
 
         return new Map (
                 jobj.get("length").getAsInt(),

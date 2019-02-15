@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MapParams } from '../shared/map-params';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Map } from '../shared/map';
 import { MapService } from '../shared/map/map.service';
 import { Subscription } from 'rxjs/internal/Subscription';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'request-map',
@@ -13,24 +13,36 @@ export class RequestMapComponent {
 
   sub: Subscription;
   map: any;
+  ms: MapService;
 
-  constructor(private route: ActivatedRoute,
-              private router: Router,
-              private mapService: MapService) {
+  constructor(private mapService: MapService,
+              private route: ActivatedRoute,
+              private router: Router) {
+    this.ms = mapService;
   }
 
-  model = new MapParams(12, 12, true, 3, 3, true, 3, 3, false, 3, 4);
+  model = new Map(null, 12, 12, true, 3, 3, true, 3, 3, false, 3, 4);
   submitted = false;
 
-  onSubmit() {
-
+  onSubmit(obj:any) {
+      this.map = obj;
+      console.log(this.map);
+      this.ms.postRequest(this.map).subscribe(
+        data => {
+          console.log(data);
+          this.ngOnInit(data);
+        }
+      )
   }
 
-  gotoList() {
-    this.router.navigate(['/view-map']);
+  ngOnInit(data : any){
+    if(data != null){
+      this.map = data;
+    }
   }
 
   newMapRequest() {
-    this.model = new MapParams(12, 12, true, 3, 3, true, 3, 3, false, 3, 4);
+    this.model = new Map(null, 12, 12, true, 3, 3, true, 3, 3, false, 3, 4);
+    this.map = null;
   }
 }

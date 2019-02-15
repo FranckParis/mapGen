@@ -7,15 +7,15 @@ import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { ViewMapComponent } from './view-map/view-map.component';
+import { RandomMapComponent } from './random-map/random-map.component';
 import { RequestMapComponent } from './request-map/request-map.component';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/request-map', pathMatch: 'full' },
+  { path: '', redirectTo: '/app-root', pathMatch: 'full' },
   {
-    path: 'view-map',
-    component: ViewMapComponent
+    path: 'random-map',
+    component: RandomMapComponent
   },
   {
     path: 'request-map',
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    ViewMapComponent,
+    RandomMapComponent,
     RequestMapComponent
   ],
   imports: [

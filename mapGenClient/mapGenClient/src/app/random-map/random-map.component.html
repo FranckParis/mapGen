@@ -1,0 +1,10 @@
+<!--<img src="data:image/jpg;base64,{{map.renderedBase64MapString}}"/>-->
+
+<a routerLink="/random-map" routerLinkActive="active" (click)="ngOnInit()">Refresh</a>
+<hr/>
+
+<div *ngIf="map != null">
+  <div *ngFor="let obj of map.map | keyvalue">
+    {{obj.key}}:{{obj.value | json}}
+  </div>
+</div>
