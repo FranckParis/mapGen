@@ -1,4 +1,5 @@
 import { MapService } from '../shared/map/map.service';
+import { GridComponent } from '../grid/grid.component';
 import { OnInit, Component } from '@angular/core';
 
 @Component({
@@ -9,12 +10,14 @@ import { OnInit, Component } from '@angular/core';
 
 export class RandomMapComponent implements OnInit {
   map: any;
+  grid: GridComponent;
 
   constructor(private mapService: MapService) { }
 
   ngOnInit() {
     this.mapService.getRandom().subscribe(data => {
       this.map = data;
+      this.grid = new GridComponent(this.map);
     });
   }
 }

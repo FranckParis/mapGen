@@ -9,6 +9,9 @@ import { AppComponent } from './app.component';
 
 import { RandomMapComponent } from './random-map/random-map.component';
 import { RequestMapComponent } from './request-map/request-map.component';
+import { GridComponent } from './grid/grid.component';
+
+
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
@@ -27,7 +30,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     RandomMapComponent,
-    RequestMapComponent
+    RequestMapComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,
