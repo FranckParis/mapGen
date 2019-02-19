@@ -2,9 +2,5 @@
 
 <a routerLink="/random-map" routerLinkActive="active" (click)="ngOnInit()">Refresh</a>
 <hr/>
-
-<div *ngIf="map != null">
-  <div *ngFor="let obj of map.map | keyvalue">
-    {{obj.key}}:{{obj.value | json}}
-  </div>
-</div>
+<h1>Random Map</h1>
+<grid [map]="grid"></grid>

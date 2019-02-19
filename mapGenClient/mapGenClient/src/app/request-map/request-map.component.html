@@ -1,9 +1,4 @@
-<div *ngIf="map != null">
-  <div *ngFor="let obj of map.map | keyvalue">
-    {{obj.key}}:{{obj.value | json}}
-  </div>
-  <hr/>
-</div>
+<grid [map]="grid"></grid>
 <div class="container">
     <h1>Map Request</h1>
     <form (ngSubmit)="onSubmit(mapRequest.value)" #mapRequest="ngForm">
@@ -65,7 +60,7 @@
       </div>
       <hr/>
       <div>
-        <button type="button" class="btn btn-warning" (click)="newMapRequest(); mapRequest.reset()">Clear</button>
+        <button type="button" class="btn btn-warning" (click)="mapRequest.reset(); newMapRequest()">Clear</button>
         <button type="submit" class="btn btn-success" [disabled]="!mapRequest.form.valid">Submit</button>
       </div>
     </form>

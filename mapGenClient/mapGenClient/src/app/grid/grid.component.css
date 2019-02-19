@@ -1,0 +1,7 @@
+div {
+    display: inline-block;
+}
+
+div label {
+    display: block;
+}

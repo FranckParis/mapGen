@@ -1,0 +1,10 @@
+<div *ngIf="map != null">
+  <ng-container *ngFor="let obj of map.map | keyvalue; let i= index;">
+    <br *ngIf="(i+1) % map.width == 0 && i != 0; else imgTemplate"/>
+    <ng-template #imgTemplate>
+      <div>
+        <img src="../assets/{{obj.value.type}}.jpg"/>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

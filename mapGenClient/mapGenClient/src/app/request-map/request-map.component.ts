@@ -14,6 +14,7 @@ export class RequestMapComponent {
   sub: Subscription;
   map: any;
   ms: MapService;
+  grid:any;
 
   constructor(private mapService: MapService,
               private route: ActivatedRoute,
@@ -37,12 +38,26 @@ export class RequestMapComponent {
 
   ngOnInit(data : any){
     if(data != null){
-      this.map = data;
+      //this.map = data;
+      this.grid = new Map(
+                  data.map,
+                  data.length,
+                  data.width,
+                  data.cities,
+                  data.citiesProba,
+                  data.citiesIterNb,
+                  data.forests,
+                  data.forestsProba,
+                  data.forestsIterNb,
+                  data.water,
+                  data.waterProba,
+                  data.waterIterNb);
     }
   }
 
   newMapRequest() {
     this.model = new Map(null, 12, 12, true, 3, 3, true, 3, 3, false, 3, 4);
     this.map = null;
+    this.grid = null;
   }
 }
